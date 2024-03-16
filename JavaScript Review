@@ -1,0 +1,28 @@
+20 Febrero 2024
+
+Destructuring
+=============
+
+    // Destructuring Example
+    const book = getBook(2);
+
+    // Normal way
+    const titles = book.title;
+    const authors = book.author;
+    const page = book.pages;
+
+    // Destructuring
+    const { title, author, pages } = book;
+    // --> title = book.title
+    // Names must equal property names
+    // Very useful for data from API
+    // You can save many variables at the same time
+
+    // Also works with arrays
+
+    // Normal way
+    const primary_author = author[0];
+    const secondary_author = author[0];
+
+    // Destructuring
+    const [primaryAuthor, secondaryAuthor] = author;

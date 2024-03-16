@@ -1,0 +1,187 @@
+Section 6:
+
+    Name of the file is the name of the component. 
+
+    Conditional Classes
+
+        Step into JS mode: className={}
+
+        Create a template literal: className={` ... `}
+
+        Go into JS mode: className={` ${ ... } `}
+
+        Write the if statement:
+
+            className={`${step >= 1 ? "active" : ""}`}
+
+    Handling events
+
+        Event listeners are imperative way
+
+        <div onClick={ myFunction >
+        <div onMouseEnter={() = > somecode} >
+
+    State in React
+
+        The most important concept in React
+
+            useState
+            useReducer
+            Context Api
+            Redux
+
+        Data that a component holds
+
+        Updating re renders the component
+
+        Local variables persist between renders
+
+
+
+        1. Create state variable
+
+            import {useState} from React;
+
+            [step, setStep] = useState(<defaultValue>)
+
+            // 'step' is the variable we use in our code
+
+            // Called a 'Hook'
+
+            // Call at the top of a function
+
+                // Not if statement
+
+                // Not inside a loop
+
+                // Not another function
+
+        2. Update state with function
+
+            function handleNext() {
+                setStep(step + 1);
+            }
+
+            // Never update default value (step) directly
+
+            // Always use setStep()
+
+        3. Call the function
+
+            <button onClick={handlePrevious} >
+
+
+        Writing open or closed states:
+
+            return (<div>{isOpen && (<code_to_render> )}</div>)
+
+        To change the state with a button:
+
+            <button onClick={() => setIsOpen(!isOpen)}>
+
+            If you open and close it, it will still remember the info
+
+        State is isolated on each component
+
+    Creating arrays options in forms
+
+        Manual Way
+            {<option value={1}>1</option>}
+            {<option value={2}>2</option>}
+
+
+        Array Way
+            <select>
+            {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+              <option value={num} key={num}>
+                {num}
+              </option>
+            ))}
+            </select>
+
+    Reading form information
+
+        Inside the form function:
+
+            function handleSubmit(e) {
+                e.preventDefault();
+            }
+
+            <form className="add-form" onSubmit={handleSubmit}>
+            </form>
+
+
+    Controlled elements
+
+        Three step proces:
+
+        1 .Create hook
+
+            const [quantity, setQuantity] = useState(1);
+
+        2. Force value to hook value
+
+            <select value={quantity} >
+            </select>
+
+        3. Force update on change to setter function
+
+            <select value={quantity} >
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}   
+            </select>
+
+    State vs Props
+
+        State: Internal data of the component
+
+            const [quantity, setQuantity] = useState(1);
+
+            Like variables. Sustains data over re-renders
+
+        Props: External data 
+
+            function Item({ item }) {}
+
+            Read only
+
+            Like function parameters
+
+    Derived state
+
+        When state changes, the function its in rerenders. 
+
+
+    Separating into different components
+
+        Separate function into a new file
+
+        In the new file:
+
+            add 'export default <function>'
+
+        In the old file:
+
+            import 'SomeName' from './filePath';
+
+            In your JSX file
+
+            <SomeName />
+
+        Import the react hooks as necesary in the new file:
+
+            import { useState } from "react";
+
+    Children props
+
+        What is between the opening and closing tag of the component.
+
+            <MyComponent/>  --> works
+            <MyComponent> (JSX here) <MyComponent/>
+
+        We pass it as a prop using the name {children}
+
+        Add it inside the function where you needit with {children}
+
+        Allows for more flexibility
+

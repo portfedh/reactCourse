@@ -1,0 +1,338 @@
+Ultimate React Course 2024
+
+Section 1: Welcome
+
+
+    Building Our First React App
+
+        Start on the web using react.new
+
+        Delete all content on App.js
+
+        React uses functions
+
+        The main function is called App()
+
+        You add 'export default' so its read by index.js
+
+        State is what we update in the UI
+
+        useState uses this formula:
+            const [advice, setAdvice] = useState("");
+            const [count, setCount] = useState(0);
+
+        useEffect uses this formula:
+            useEffect(function () {
+                getAdvice();
+            }, []); 
+
+    React vs Vanilla JS
+
+        React updates the DOM automatically
+
+        React is JS first
+
+        Code is HTML first
+
+        All react code runs in a div with id='root'
+
+    Setting up a development enviroment
+
+        Vs Code is recommended
+
+            ESLint Prettier
+
+            Autosave on focus change
+
+            Add code snipets in VsCode
+
+                In settings page
+
+        Google Chrome is recommended
+
+        NodeJs is needed
+
+    React Documentarion
+
+        Similar do MDN
+
+        Use to explore about methods in depth
+
+    Setting up a new react project
+
+        Two options
+
+            Create-react-app
+
+            Vite
+
+        Create-react-app
+
+            Comple starter kit
+
+            Everything preconfigured
+
+            Uses slow tech (webpack)
+
+            370 MB empty project
+
+            (Slow refresh times)
+
+            Good for learning, not real dev
+
+            $ npx create-react-app <project-name>
+
+            $ npm start
+
+            Edit code in App.js
+
+            Refresh will be immediate
+
+        Vite
+
+            Good for development
+
+            You manually have to add everything
+
+        NextJs / Remix
+
+            Recommended Frameworks 
+
+Section 5: Components, props, jsx
+
+    Create src/index.js
+
+        import React
+        impor ReactDom
+
+        create App() function
+
+        create root variable
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        Render element
+
+            root.render(<App />);
+
+        Use strict mode
+
+            root.render(
+              <React.StrictMode>
+                <App />
+              </React.StrictMode>
+            );
+
+            Renders everything twice
+
+
+    Debugging
+
+        Make sure EsLint is working
+
+        Make sure the app is running
+
+            $ npm start
+
+        Reload the app
+
+            Crl + C
+
+            $ npm start
+
+        Reload the browser
+
+            Cmd + R
+
+        Have the console open
+
+        Use ReactDev Tools
+
+        VsCode output tab
+
+            Select one of the running processes. 
+
+        Compare final code vs your code
+
+    Components
+
+        All React is made by components
+
+        Each component has its data, logic and appearance
+
+        Components are nested inside each other
+
+        We pass data between them by using props.
+
+        Component tree
+
+            Parent, child relationships
+
+        Each component can return one element.
+
+        Wrapp multiple components in a div
+
+    JSX
+
+        React uses Javascript 
+
+        JSX is a combination of HTMl, CSS & JS.
+
+        Makes the code much easier to read.
+
+        Its translated back to JS using Babel.
+
+    Imperative mode
+
+        Traverse the DOM
+
+        Select elemnts manualy
+
+        Attach event handlers
+
+
+    Declarative mode
+
+        Describe what the UI shoud look like
+
+        Based on current data
+
+    Javascript
+
+        You can add variables in react functions. 
+
+
+    Separation of concerns
+
+        Traditional separation of concerns is one technology per file. 
+
+        React separates concerns by component.
+
+    CSS in React
+
+        use 
+
+        Properties have been renamed.
+
+            You have to look them up.
+
+            Values are strings.
+
+            class --> className 
+
+        Inline style
+
+            myStyle = {{color: "red"}}
+
+        As a vriable
+
+            const style = {color: "red"}
+
+            return <h1 style={myStyle}></h1>
+
+        Import css file
+
+            import "./index.css";
+
+    Rules of JSX
+
+        Enter JS mode with {}
+
+            If / switch statements are not allowed
+
+            Can only have one parent element
+
+            If you need more, use React.Fragment
+
+            Comments get in JS mode { /* comment */} and comment inside
+
+
+    Rendering lists
+
+        Use Map functions
+
+            <ul className="pizzas">
+            {pizzaData.map((pizza) => (
+              <Pizza pizzaObj={pizza} key={pizza.name} />
+            ))}
+            </ul>
+
+    Conditional rendering:
+
+        if(){}else(){} arent allowed in JSX
+
+    Conditional Rendering: &&
+
+        Render components if conditions are met
+
+        { <condition> && <div> execution if condition is true </div> }
+
+        Aim for boolean values
+
+        True or truthy values will execute the right part.
+
+        False conditions will not display.
+
+        Falsy conditions will display its value in the DOM.
+
+
+    Conditional rendering: Ternaries
+
+        JS: condition ? expression_if_true : expression_if_false;
+
+        React: { <condition> ? <div> execution if condition is true </div> : null}
+
+        Allows alternative JSX for false conditions.
+
+    Conditional rendering: Multiple conditions
+
+        Use if statements in function in the function returning a component.
+
+        if (props.pizzaObj.soldOut) return null
+
+        Add inside a function.
+
+    Extracting JSX to a new component
+
+        Reading a variable from one component inside another with props.
+
+        Save as a variable in the parent function.
+
+    Destructuring Props
+
+        instead of using:
+
+            function pizza(props) {};
+
+            if (props.pizzaObj.SoldOut) {};
+
+        We can destructure as:
+
+            function pizza({pizzaObj}) {};
+
+            if (pizzaObj.SoldOut) {};
+
+
+    React Fragments
+
+        Lets us have more than one element inside a piece of JSX
+
+        Needs either of these code tags:
+
+            <> </>
+
+            <React.Fragment> </React.Fragment>
+
+        With React.Fragment, you can add a key
+
+            <React.Fragment key='some_key'>
+
+    Conditional Classes & text
+
+        Classes
+
+             <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+
+        Text
+            <span>{pizzaObj.soldOut ? " SOLD OUT" : "$ " + pizzaObj.price}</span>
+

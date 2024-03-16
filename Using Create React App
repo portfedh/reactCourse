@@ -1,0 +1,35 @@
+Online alternative:
+
+	react.new (in browser)
+
+
+Setup: Create React App (webpack)
+
+    Create Project
+
+        $ npx create-react-app <project-name>
+
+    Project info
+
+        public/index.html has a div with id=root
+
+
+        scr/index.js has react code
+
+            import React from "react";
+            import ReactDOM from "react-dom/client";
+            import "./index.css";
+
+            function App() {}
+
+            const root = ReactDOM.createRoot(document.getElementById("root"));
+            root.render()
+
+    Start Project
+
+        $ npm start
+
+    Edit project
+
+        src/index.js
+
