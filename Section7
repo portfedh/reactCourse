@@ -1,0 +1,43 @@
+Section 7:
+
+    Component categories
+
+        Stateless (presentation) components
+
+            Small and reusable
+
+            <Logo />
+
+        Statefull components
+
+            Have state
+
+            <Search />
+
+        Structural components
+
+            Pages, layouts, screens
+
+            <App />
+
+            <NavBar />
+
+    Prop Drilling
+
+        Lifting state to parent component
+
+        passing state to child components
+
+        Accepting stat to child component
+
+        Doing that several levels deep
+
+    Component Composition )
+
+        <Component>
+            <Other/>
+        <Component/>
+
+        function Component({children}) {}
+
+        Avoids having to use prop drilling
