@@ -1,0 +1,224 @@
+Section 11:
+
+Component:
+    
+    Function that returns React elements (JSX)
+
+
+Instance:
+
+    Each time we use a component.
+
+    Returns an element.
+
+Element:
+
+    Result of these function calls.
+
+    Converted to DOM elment (HTML)
+
+Rendering components:
+
+    Convert react code to HTML
+
+        Initial render
+
+        When state is updated
+
+    Virtual DOM
+
+        Component tree
+
+        Creates a React Elment Tree
+
+            Also called a 'Virtual DOM'
+
+            Object with all the components
+
+        When a change is made
+
+            Affected component and children are re-rendered in new object
+
+
+        Difff of both objects are made
+
+        List of DOM updates are done
+
+        React does not write to the DOM
+
+    React writes to the DOM using ReactDOM
+
+    React writes to IOS Android using ReactNative
+
+    Different renderers exist
+
+Keys in react
+
+    Always use keys in React
+
+        In list items, if there are no keys all items re-render
+
+        If you add keys, only the new or removed element re-renders
+
+        UI performs much better
+
+    If you add a different key to an item you tell react to re-render
+
+    Never declare a component inside a component
+
+Logic in react
+
+    Render Logic: What to display
+
+    Event handler functions
+
+Update Batching
+
+    Multiple setState() calls in event handlers
+
+    All updates are done at nonce, not one at a time
+
+    Common for Reset() functions
+
+    Use callback functions whenever updting state
+
+
+Event delectarion
+
+    Handling events for multiple elements in one parent element
+
+    React bundles all event handlers of one type in the root element.
+
+
+Synthetic event
+
+    Similar no event objects but extra properties
+
+        stopPropagation()
+
+        preventDefault()
+
+Libraries vs frameworks
+
+    Framework: Complete structure tu build an app. 
+        
+        Include everything.
+        
+        Stuck with framework tools and conventions.
+
+        Angular, vue, svelt are frameworks
+
+
+    Library
+
+        Code people share to make a task easier
+    
+        React is a library
+
+        You need other libraries for styling, routing etc.
+
+            ReactRouter
+            ReactQuery
+            Redux
+            tailwindcss
+
+        There are react frameworks that extend react
+
+            Opinionated, in how to handle stuff
+
+            http request, styling, routing, etc
+
+            NextJs, Remix, Gatsby
+
+
+
+useEffect()
+
+    If you fetch data in a function and updateState() the component will re-render. 
+
+    This re-render will trigger the data fetch again.
+
+    This will trigger an infinite loop. 
+
+    To avoid it we use the useEffect() function.
+
+    Also to keep a component in sync with some external system.
+
+    Its used for things we need to run on specific moments: 
+
+        mount
+
+        render
+
+        unmount
+
+    Use inside event handlers
+
+        onClick
+
+        onSubmit
+
+        etc
+
+    Also used by rendering
+
+        When there is an update
+
+        When it unmounts
+
+        Opens extra possibilities
+
+    Function runs after initial render
+    
+    Requires import {useEffect} from "react"
+
+    Doesnt return anything
+
+    Then pass a function we want to run
+
+        useEffect(function() {
+
+            // code to run
+        }, []);
+
+        second argument [] tells it when to run.
+
+        Empty argument [] runs once at mount.
+
+        [title] makes the effec react when 'title' changes
+
+    useEffect(fn, [])
+
+        Runs on every change
+
+        Dont use this way
+
+    useEffect(fn, [])
+
+        Runs on mount (only once)
+
+    useEffect(fn, [x, y, z])
+
+        Runs on mount
+
+        Any update of x, y or z will also trigger re render
+
+
+    useEffect( () => {
+
+        // Effect here
+
+        return () => {
+          // Clean up function
+          // Called when component is unmounted
+        };
+    }, []);
+
+            Runs on mount (only once)
+
+
+
+
+
+
+

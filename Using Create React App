@@ -33,3 +33,8 @@ Setup: Create React App (webpack)
 
         src/index.js
 
+Setup: import React App (webpack)
+
+    open the folder in vscode and open a terminal
+
+    $ npm install
